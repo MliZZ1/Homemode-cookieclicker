@@ -47,21 +47,21 @@
   
     // Increment clicks smoothly
     function updateAutoClickers() {
-      // First auto-clicker (10 clicks per second)
+      // First auto-clicker (10 clicks per second, smoothed)
       if (autoClickerCount > 0) {
-        count += autoClickerCount * 10; // Add 10 clicks per second per auto-clicker
+        count += autoClickerCount; // Add 1 click per interval
       }
       
       // Second auto-clicker (faster, more powerful)
       if (autoClicker2Count > 0) {
-        count += autoClicker2Count * 100; // Add 100 clicks per second per auto-clicker
+        count += autoClicker2Count * 10; // Add 10 clicks per interval
       }
       
       count = Math.floor(count); // Ensure count remains an integer
     }
   
-    // Set up interval to update auto-clickers
-    setInterval(updateAutoClickers, 1000); // Update every 1 second
+    // Set up interval to update auto-clickers (10 times per second)
+    setInterval(updateAutoClickers, 100); // Update every 0.1 seconds
 </script>
 
 <div class="container">
