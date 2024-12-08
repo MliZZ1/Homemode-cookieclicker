@@ -1,20 +1,6 @@
-export default async function() {
-    const { svelte } = await import('@sveltejs/vite-plugin-svelte')
-    
-    return {
-      plugins: [svelte()],
-      resolve: {
-        alias: {
-          '@': '/src'
-        }
-      },
-      build: {
-        outDir: 'dist',
-        rollupOptions: {}
-      },
-      server: {
-        port: 3000,
-        open: true
-      }
-    }
-  }
+import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+	plugins: [sveltekit()]
+});
